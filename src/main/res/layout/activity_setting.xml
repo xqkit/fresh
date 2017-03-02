@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_setting"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context="com.journeyos.freshday.view.activity.SettingActivity">
+
+    <RelativeLayout
+        android:id="@+id/user"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <View
+            android:background="#ffcccccc"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <ImageView
+            android:id="@+id/user_ic"
+            android:layout_centerVertical="true"
+            android:src="@drawable/setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="登录/注册"
+            android:gravity="center_vertical"
+            android:drawableRight="@drawable/right"
+            android:id="@+id/user_login"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/user_ic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <View
+            android:background="#ffcccccc"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_below="@+id/user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="我的"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mine" />
+        <View
+            android:background="#ffcccccc"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <Button
+            android:text="玩过的H5游戏"
+            android:background="#ffffff"
+            android:drawableRight="@drawable/right"
+            android:gravity="left|center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/h5game"
+            android:layout_below="@+id/mine" />
+        <View
+            android:background="#ffcccccc"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <Button
+            android:text="收藏"
+            android:background="#ffffff"
+            android:drawableRight="@drawable/right"
+            android:gravity="left|center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/h5game"
+            android:id="@+id/collect" />
+        <View
+            android:background="#ffcccccc"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <Button
+            android:text="赛事预约"
+            android:background="#ffffff"
+            android:drawableRight="@drawable/right"
+            android:gravity="left|center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/collect"
+            android:id="@+id/game_order" />
+        <View
+            android:background="#ffcccccc"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <Button
+            android:text="第三方账户"
+            android:background="#ffffff"
+            android:drawableRight="@drawable/right"
+            android:gravity="left|center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/game_order"
+            android:id="@+id/account" />
+        <View
+            android:background="#ffcccccc"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+    </LinearLayout>
+</RelativeLayout>

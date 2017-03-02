@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_h5_game"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.journeyos.freshday.view.collections.PlayedActivity">
+    <com.journeyos.freshday.view.custom.SlideCutListView
+        android:id="@+id/slideCutListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:listSelector="@android:color/transparent"
+        android:cacheColorHint="@android:color/transparent"/>
+    <TextView
+        android:id="@+id/empty"
+        android:visibility="gone"
+        android:gravity="center"
+        android:text="网络未连接/n请连接网络后轻触页面刷新"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

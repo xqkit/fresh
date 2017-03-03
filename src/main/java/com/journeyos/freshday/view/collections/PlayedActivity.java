@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.journeyos.freshday.model.ItemBean;
-import com.journeyos.freshday.view.custom.SlideCutListView;
+import com.journeyos.freshday.view.SlideCutListView;
 import com.journeyos.freshday.R;
 
 import java.util.ArrayList;
@@ -77,7 +77,7 @@ public class PlayedActivity extends Activity {
                 convertView = LayoutInflater.from(PlayedActivity.this).inflate(R.layout.item_h5game, parent, false);
                 holder = new ViewHolder(convertView);
                 convertView.setTag(holder);
-            }else {
+            } else {
                 holder = (ViewHolder) convertView.getTag();
             }
 

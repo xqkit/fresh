@@ -1,4 +1,4 @@
-package com.journeyos.freshday.view.custom;
+package com.journeyos.freshday.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

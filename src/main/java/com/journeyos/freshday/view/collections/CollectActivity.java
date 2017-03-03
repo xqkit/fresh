@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.journeyos.freshday.adapter.HomeAdapter;
 import com.journeyos.freshday.model.ItemBean;
-import com.journeyos.freshday.view.custom.SlideCutListView;
+import com.journeyos.freshday.view.SlideCutListView;
 import com.journeyos.freshday.R;
 
 import java.util.ArrayList;

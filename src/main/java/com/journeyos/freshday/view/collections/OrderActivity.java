@@ -40,11 +40,11 @@ public class OrderActivity extends Activity {
         } else {
             mListView.setVisibility(View.VISIBLE);
         }
-        if(list.size()==0){
+        if (list.size() == 0) {
             mEmpty.setText("无网络连接");
             mEmpty.setVisibility(View.VISIBLE);
             mListView.setVisibility(View.GONE);
-        }else {
+        } else {
             mListView.setVisibility(View.VISIBLE);
         }
     }

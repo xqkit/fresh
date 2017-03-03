@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.journeyos.freshday.view.collections.PlayedActivity">
-    <com.journeyos.freshday.view.custom.SlideCutListView
+    <com.journeyos.freshday.view.SlideCutListView
         android:id="@+id/slideCutListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

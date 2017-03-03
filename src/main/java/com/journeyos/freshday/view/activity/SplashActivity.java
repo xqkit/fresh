@@ -43,7 +43,7 @@ public class SplashActivity extends Activity implements View.OnClickListener {
                         .setPositiveButton("允许", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                splash.edit().putBoolean("started",true).apply();
+                                splash.edit().putBoolean("started", true).apply();
                                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
                                 finish();
                             }

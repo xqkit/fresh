@@ -40,17 +40,11 @@ import java.util.List;
 
 import static com.journeyos.freshday.R.id.srfl;
 
-import com.journeyos.freshday.view.activity.content.LiveMatchActivity;
-import com.journeyos.freshday.view.activity.content.H5Activity;
-import com.journeyos.freshday.view.activity.SettingActivity;
-import com.journeyos.freshday.presenter.IBasePresenterIml;
-
-
 /**
  * A simple {@link Fragment} subclass.
  */
 public class MainFragment extends Fragment implements IBaseView, View.OnClickListener {
-    public Context context;
+    public Context mContext;
     private List<ItemBean> list = new ArrayList<>();
     private MyAdapter mAdapter;
     private int lastVisiblePosition;
@@ -69,15 +63,13 @@ public class MainFragment extends Fragment implements IBaseView, View.OnClickLis
     private int num;
 
     public MainFragment() {
-        // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        context = getActivity();
+        mContext = getActivity();
         presenter = new IBasePresenterIml<ItemBean>(this);
         return inflater.inflate(R.layout.fragment_main, container, false);
     }
@@ -85,7 +77,7 @@ public class MainFragment extends Fragment implements IBaseView, View.OnClickLis
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        sp = context.getSharedPreferences("login", Context.MODE_PRIVATE);
+        sp = mContext.getSharedPreferences("login", Context.MODE_PRIVATE);
         initView(view);
         initData();
         initAdapter();
@@ -106,7 +98,7 @@ public class MainFragment extends Fragment implements IBaseView, View.OnClickLis
             @Override
             public void create(SwipeMenu menu) {
                 // create "open" item
-                collectItem = new SwipeMenuItem(context);
+                collectItem = new SwipeMenuItem(mContext);
                 // set item background
                 collectItem.setBackground(new ColorDrawable(Color.rgb(0xC9, 0xC9,
                         0xCE)));
@@ -122,7 +114,7 @@ public class MainFragment extends Fragment implements IBaseView, View.OnClickLis
                 menu.addMenuItem(collectItem);
 
                 // create "delete" item
-                SwipeMenuItem deleteItem = new SwipeMenuItem(context);
+                SwipeMenuItem deleteItem = new SwipeMenuItem(mContext);
                 // set item background
                 deleteItem.setBackground(new ColorDrawable(Color.rgb(0xF9,
                         0x3F, 0x25)));
@@ -151,13 +143,13 @@ public class MainFragment extends Fragment implements IBaseView, View.OnClickLis
                     case 0:
                         //收藏
                         menu.getMenuItems().get(index).setTitle("已收藏");
-                        Toast.makeText(context, "收藏成功", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mContext, "收藏成功", Toast.LENGTH_SHORT).show();
 
                         mAdapter.notifyDataSetChanged();
                         break;
                     case 1:
                         //钉到桌面
-                        Toast.makeText(context, "钉到桌面", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mContext, "钉到桌面", Toast.LENGTH_SHORT).show();
                         break;
                 }
                 return false;
@@ -227,7 +219,7 @@ public class MainFragment extends Fragment implements IBaseView, View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.setting:
-                startActivity(new Intent(context, SettingActivity.class));
+                startActivity(new Intent(mContext, SettingActivity.class));
                 break;
         }
     }
@@ -301,7 +293,7 @@ public class MainFragment extends Fragment implements IBaseView, View.OnClickLis
 
             final ViewHolder holder;
             if (convertView == null) {
-                convertView = LayoutInflater.from(context).inflate(R.layout.item_main, parent, false);
+                convertView = LayoutInflater.from(mContext).inflate(R.layout.item_main, parent, false);
                 holder = new ViewHolder(convertView);
                 convertView.setTag(holder);
             } else {
@@ -316,9 +308,9 @@ public class MainFragment extends Fragment implements IBaseView, View.OnClickLis
                             if (holder.start.getText().equals("预约提醒")) {
                                 if (sp.getBoolean("login", false)) {
                                     holder.start.setText("已预约");
-                                    Toast.makeText(context, "预约成功", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(mContext, "预约成功", Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(context, "登录酷派账号", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(mContext, "登录酷派账号", Toast.LENGTH_SHORT).show();
                                 }
                             } else {
                                 holder.start.setText("预约提醒");
@@ -328,7 +320,7 @@ public class MainFragment extends Fragment implements IBaseView, View.OnClickLis
                     holder.icon.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            startActivity(new Intent(context, LiveMatchActivity.class));
+                            startActivity(new Intent(mContext, LiveMatchActivity.class));
                         }
                     });
                     break;
@@ -340,9 +332,9 @@ public class MainFragment extends Fragment implements IBaseView, View.OnClickLis
                             if (holder.start.getText().equals("预约提醒")) {
                                 if (sp.getBoolean("login", false)) {
                                     holder.start.setText("已预约");
-                                    Toast.makeText(context, "预约成功", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(mContext, "预约成功", Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(context, "登录酷派账号", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(mContext, "登录酷派账号", Toast.LENGTH_SHORT).show();
                                 }
                             } else {
                                 holder.start.setText("预约提醒");
@@ -352,7 +344,7 @@ public class MainFragment extends Fragment implements IBaseView, View.OnClickLis
                     holder.icon.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            startActivity(new Intent(context, LiveGameActivity.class));
+                            startActivity(new Intent(mContext, LiveGameActivity.class));
                         }
                     });
                     break;
@@ -361,13 +353,13 @@ public class MainFragment extends Fragment implements IBaseView, View.OnClickLis
                     holder.start.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            startActivity(new Intent(context, GiftActivity.class));
+                            startActivity(new Intent(mContext, GiftActivity.class));
                         }
                     });
                     holder.icon.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            startActivity(new Intent(context, GiftActivity.class));
+                            startActivity(new Intent(mContext, GiftActivity.class));
                         }
                     });
                     break;
@@ -376,13 +368,13 @@ public class MainFragment extends Fragment implements IBaseView, View.OnClickLis
                     holder.start.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            startActivity(new Intent(context, H5Activity.class));
+                            startActivity(new Intent(mContext, H5Activity.class));
                         }
                     });
                     holder.icon.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            startActivity(new Intent(context, H5Activity.class));
+                            startActivity(new Intent(mContext, H5Activity.class));
                         }
                     });
                     break;

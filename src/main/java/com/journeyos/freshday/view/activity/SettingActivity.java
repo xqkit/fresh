@@ -21,8 +21,7 @@ import com.journeyos.freshday.presenter.ISettingPresenterIml;
 import com.journeyos.freshday.R;
 
 
-public class SettingActivity extends Activity implements ISettingView,View.OnClickListener {
-
+public class SettingActivity extends Activity implements ISettingView, View.OnClickListener {
 
     private ImageView mUserIc;
     private TextView mUserLogin;
@@ -44,7 +43,7 @@ public class SettingActivity extends Activity implements ISettingView,View.OnCli
         initActionBar();
         initView();
         sp = getSharedPreferences("login", MODE_PRIVATE);
-        if(sp.getBoolean("loginthree",false)){
+        if (sp.getBoolean("loginthree", false)) {
 
         }
         presenter = new ISettingPresenterIml(this);
@@ -52,7 +51,7 @@ public class SettingActivity extends Activity implements ISettingView,View.OnCli
 
     private void initActionBar() {
         ActionBar bar = getActionBar();
-        if(bar!=null){
+        if (bar != null) {
             bar.setTitle("FreshDay设置");
             bar.setHomeButtonEnabled(true);
             bar.setDisplayHomeAsUpEnabled(true);
@@ -83,26 +82,26 @@ public class SettingActivity extends Activity implements ISettingView,View.OnCli
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.user:
-                if(loged){
+                if (loged) {
                     presenter.login(loged);
                     loged = false;
-                }else {
+                } else {
                     presenter.login(loged);
                     loged = true;
                 }
                 Toast.makeText(this, "登录酷派账号", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.h5game:
-                startActivity(new Intent(this,PlayedActivity.class));
+                startActivity(new Intent(this, PlayedActivity.class));
                 break;
             case R.id.collect:
-                startActivity(new Intent(this,CollectActivity.class));
+                startActivity(new Intent(this, CollectActivity.class));
                 break;
             case R.id.game_order:
-                startActivity(new Intent(this,OrderActivity.class));
+                startActivity(new Intent(this, OrderActivity.class));
                 break;
             case R.id.account:
-                startActivity(new Intent(this,AccountActivity.class));
+                startActivity(new Intent(this, AccountActivity.class));
                 break;
         }
     }

@@ -11,7 +11,7 @@ import android.view.WindowManager;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import com.journeyos.freshday.APP;
+import com.journeyos.freshday.base.APP;
 import com.umeng.socialize.UMAuthListener;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.bean.SHARE_MEDIA;
@@ -24,9 +24,10 @@ import java.util.Map;
  */
 
 public class Login {
-    public interface Result{
+    public interface Result {
         void getResult(Map<String, String> map);
     }
+
     public static void login(final Context context, View parent, final Result result) {
         final SharedPreferences sp = context.getSharedPreferences("login", Context.MODE_PRIVATE);
         View contentView = LayoutInflater.from(context).inflate(R.layout.pw_login, null);
@@ -40,6 +41,7 @@ public class Login {
                 //登录
                 UMShareAPI umShareAPI = APP.getUmShareAPI();
                 umShareAPI.getPlatformInfo((Activity) context, SHARE_MEDIA.QQ, new UMAuthListener() {
+
                     @Override
                     public void onStart(SHARE_MEDIA share_media) {
                         Log.i("ttt", "onStart: ");
@@ -48,8 +50,8 @@ public class Login {
                     @Override
                     public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
                         Log.i("ttt", "onComplete: " + map.toString());
-                        sp.edit().putBoolean("login",true).apply();
-                        sp.edit().putString("user",map.get("iconurl")).apply();
+                        sp.edit().putBoolean("login", true).apply();
+                        sp.edit().putString("user", map.get("iconurl")).apply();
                         popupWindow.dismiss();
                         result.getResult(map);
                     }
@@ -82,8 +84,8 @@ public class Login {
                     @Override
                     public void onComplete(SHARE_MEDIA share_media, int i, Map<String, String> map) {
                         Log.i("ttt", "onComplete: " + map.toString());
-                        sp.edit().putBoolean("login",true).apply();
-                        sp.edit().putString("user",map.toString()).apply();
+                        sp.edit().putBoolean("login", true).apply();
+                        sp.edit().putString("user", map.toString()).apply();
                         popupWindow.dismiss();
                         result.getResult(map);
                     }

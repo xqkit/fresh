@@ -9,6 +9,6 @@ import android.util.TypedValue;
 
 public class Dimens {
     public static int dp2px(int dp, DisplayMetrics metrics) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,metrics);
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, metrics);
     }
 }
